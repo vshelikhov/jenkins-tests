@@ -18,7 +18,7 @@ def listBranches() {
 
     return branches
 }
-def gitBranches = listBranches()
+//def gitBranches = listBranches()
 
 
 properties([
@@ -29,14 +29,14 @@ properties([
 //    [$class: 'JobRestrictionProperty'],
     parameters([
 //        buildJobs.createReloadPipelineParameter(),
-//         listGitBranches(
-//             branchFilter: 'origin.*/(.*)',
-//             defaultValue: 'default',
-//             name: 'nameOfVariable',
-//             type: 'BRANCH',
-//             remoteURL: env.GIT_URL,
-//             credentialsId: GIT_SSH
-//         ),
+        listGitBranches(
+            branchFilter: 'origin.*/(.*)',
+            defaultValue: 'main',
+            name: 'FROM_BRANCH',
+            type: 'BRANCH',
+            remoteURL: env.GIT_URL,
+            credentialsId: GIT_SSH
+        ),
         choice(
             name: 'ACTION',
             choices: gitBranches,
