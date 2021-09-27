@@ -14,7 +14,7 @@ def listBranches() {
         it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
     }
 
-    return branches.tokenize()
+    return branches
 }
 def gitBranches = listBranches()
 
