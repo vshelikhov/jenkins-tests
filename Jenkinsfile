@@ -38,11 +38,6 @@ properties([
             credentialsId: GITHUB_SSH
         ),
         choice(
-            name: 'ACTION',
-            choices: gitBranches,
-            description: 'Create or destroy existing cluster'
-        ),
-        choice(
             name: 'COLOR',
             choices: [ "rainbow" ],
             description: 'Cluster color'
