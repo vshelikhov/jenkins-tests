@@ -3,7 +3,7 @@ properties([
     parameters([
         listGitBranches(
             name: 'FROM_BRANCH',
-            remoteURL: 'git@github.com:vshelikhov/jenkins-tests.git',
+            remoteURL: env.GIT_URL, //'git@github.com:vshelikhov/jenkins-tests.git',
             credentialsId: 'GITHUB_SSH'
         )
     ])
