@@ -6,11 +6,6 @@ properties([
 //    [$class: 'JobRestrictionProperty'],
     parameters([
 //        buildJobs.createReloadPipelineParameter(),
-        choice(
-            name: 'REGION',
-            choices: availableRegions,
-            description: 'Region'
-        ),
         listGitBranches(
             branchFilter: 'origin.*/(.*)',
             defaultValue: 'default',
@@ -28,27 +23,6 @@ properties([
             name: 'COLOR',
             choices: [ "rainbow" ],
             description: 'Cluster color'
-        ),
-
-        choice(
-            name: 'NEWS1_MASTER_INSTANCE_TYPE',
-            choices: ec2InstanceConfig.instanceTypesMaster,
-            description: 'News1 MASTER EC2 instance type'
-        ),
-        choice(
-            name: 'NEWS1_DATA_INSTANCE_TYPE',
-            choices: ec2InstanceConfig.instanceTypesData,
-            description: 'News1 DATA EC2 instance type'
-        ),
-        choice(
-            name: 'NEWS15_MASTER_INSTANCE_TYPE',
-            choices: ec2InstanceConfig.instanceTypesMaster,
-            description: 'News15 MASTER EC2 instance type'
-        ),
-        choice(
-            name: 'NEWS15_DATA_INSTANCE_TYPE',
-            choices: ec2InstanceConfig.instanceTypesData,
-            description: 'News15 DATA EC2 instance type'
         ),
         string(
             defaultValue: '3',
