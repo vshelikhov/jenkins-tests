@@ -1,9 +1,9 @@
 properties([
-    buildJobs.setBuildDiscarderProperty(),
-    disableConcurrentBuilds(),
-    gitLabConnection('gitlab'),
-    [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
-    [$class: 'JobRestrictionProperty'],
+//    buildJobs.setBuildDiscarderProperty(),
+//    disableConcurrentBuilds(),
+//    gitLabConnection('gitlab'),
+//    [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
+//    [$class: 'JobRestrictionProperty'],
     parameters([
         buildJobs.createReloadPipelineParameter(),
         choice(
