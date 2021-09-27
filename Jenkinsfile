@@ -5,7 +5,7 @@ properties([
 //    [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
 //    [$class: 'JobRestrictionProperty'],
     parameters([
-        buildJobs.createReloadPipelineParameter(),
+//        buildJobs.createReloadPipelineParameter(),
         choice(
             name: 'REGION',
             choices: availableRegions,
