@@ -4,7 +4,7 @@ properties([
         listGitBranches(
             name: 'FROM_BRANCH',
             description: 'some shit',
-            remoteURL: env.GIT_URL,
+            remoteURL: 'ssh://git@github.com:vshelikhov/jenkins-tests.git',
             credentialsId: 'GITHUB_SSH',
             defaultValue: '',
             quickFilterEnabled: true,
