@@ -12,7 +12,7 @@ properties([
             name: 'nameOfVariable',
             type: 'BRANCH',
             remoteURL: env.GIT_URL,
-            credentialsId: GITHUB_SSH
+            credentialsId: GIT_SSH
         ),
         choice(
             name: 'ACTION',
