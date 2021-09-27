@@ -1,7 +1,9 @@
 def listBranches() {
-    def gitURL = "git@github.com:vshelikhov/jenkins-tests.git"
-    def command = "git ls-remote -h $gitURL"
+//     def gitURL = "git@github.com:vshelikhov/jenkins-tests.git"
+//     def command = "git ls-remote -h $gitURL"
 
+    git credentialsId: 'GITHUB_SSH', url: 'git@github.com:vshelikhov/jenkins-tests.git'
+    def command = "cd jenkins-tests; git ls-remote -h ./"
     def proc = command.execute()
     proc.waitFor()
 
