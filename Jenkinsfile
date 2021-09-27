@@ -1,3 +1,24 @@
+def listBranches() {
+    def gitURL = "git@github.com:vshelikhov/jenkins-tests.git"
+    def command = "git ls-remote -h $gitURL"
+
+    def proc = command.execute()
+    proc.waitFor()
+
+    if ( proc.exitValue() != 0 ) {
+        println "Error, ${proc.err.text}"
+        System.exit(-1)
+    }
+
+    def branches = proc.in.text.readLines().collect {
+        it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
+    }
+
+    return branches.tokenize()
+}
+def gitBranches = listBranches()
+
+
 properties([
 //    buildJobs.setBuildDiscarderProperty(),
 //    disableConcurrentBuilds(),
@@ -6,17 +27,17 @@ properties([
 //    [$class: 'JobRestrictionProperty'],
     parameters([
 //        buildJobs.createReloadPipelineParameter(),
-        listGitBranches(
-            branchFilter: 'origin.*/(.*)',
-            defaultValue: 'default',
-            name: 'nameOfVariable',
-            type: 'BRANCH',
-            remoteURL: env.GIT_URL,
-            credentialsId: GIT_SSH
-        ),
+//         listGitBranches(
+//             branchFilter: 'origin.*/(.*)',
+//             defaultValue: 'default',
+//             name: 'nameOfVariable',
+//             type: 'BRANCH',
+//             remoteURL: env.GIT_URL,
+//             credentialsId: GIT_SSH
+//         ),
         choice(
             name: 'ACTION',
-            choices: ['apply','destroy'],
+            choices: gitBranches,
             description: 'Create or destroy existing cluster'
         ),
         choice(
