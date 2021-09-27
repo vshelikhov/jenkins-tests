@@ -3,6 +3,7 @@ properties([
     parameters([
         listGitBranches(
             name: 'FROM_BRANCH',
+            description: 'some shit'
             remoteURL: env.GIT_URL, //'git@github.com:vshelikhov/jenkins-tests.git',
             credentialsId: 'GITHUB_SSH'
         )
@@ -27,8 +28,6 @@ pipeline {
 //                echo "Database engine is ${DB_ENGINE}"
 //                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
                 sh 'printenv'
-
-                print gitBranches
             }
         }
     }
