@@ -35,7 +35,7 @@ properties([
             name: 'FROM_BRANCH',
             type: 'BRANCH',
             remoteURL: env.GIT_URL,
-            credentialsId: GIT_SSH
+            credentialsId: GITHUB_SSH
         ),
         choice(
             name: 'ACTION',
